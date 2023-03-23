@@ -79,3 +79,17 @@ export const useCalPos = ()=> {
     setOpacityCallback
   }
 }
+
+
+
+const onScroll = () => {
+  const el = document.querySelector(`.page-section`);
+  const ratio = getScrollRatio(el);
+  const count = opacityList.length;
+  setOpacityCallback({ ratio, count }, setOpacity);
+};
+
+const setOpacity = (i, progress) => {
+  opacityList[i] = progress;
+  console.log(i, progress)
+};
